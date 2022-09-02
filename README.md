@@ -1,44 +1,81 @@
-# Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+# Music Rating App
 
----
+Music Rating App allows users to submit, view, upvote, and delete Spotify songs from a database. Users will be required to login with their email address to use the app.
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+## Screenshots
+![App Screenshot](https://placedog.net/250?r)
 
----
+Please enjoy this image until project screenshots are completed.
 
-# Objectives
-
-- It's a beginner level app created to understand how MVC concept and logins are added
-
----
-
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used 
+## Packages/Dependencies used 
 
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
----
+<!-- ## Usage
 
-# Install all the dependencies or node packages used for development via Terminal
+View the live deployment here:
 
-`npm install` 
+[Music Rating App Live Deployment](#) -->
 
----
 
-# Things to add
+## Run Locally
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
+**Requirements before starting:**
 
+  - [MongoDB Atlas URI](https://www.mongodb.com/atlas/database)
+
+Clone the project to your local environment
+
+```bash
+  git clone https://github.com/rachelschipull/music-rating-auth-local.git
+```
+
+Go to the project directory
+
+```bash
+  cd music-rating-auth-local
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Create environment variable file
+
+```bash
+  cd config
+  touch .env
+```
+
+Add the following entries to the environment variable file (config.env)
+
+```bash
+  PORT = 2121
+  MONGO_URI = MONGODB-PLACEHOLDER-URI
+```
+
+Start the server in production mode
+
+```bash
+  npm run start
+```
+
+Navigate your browser to 
+```
+http://localhost:2121/
+```
+
+
+## Authors
+
+- [@RachelSchipull](https://github.com/rachelschipull)
+- [@ChadVidovcich](https://www.github.com/chadvidovcich)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
