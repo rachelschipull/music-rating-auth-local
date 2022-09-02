@@ -54,7 +54,7 @@ Add the following entries to the environment variable file (.env)
 
 ```bash
   PORT = 2121
-  MONGO_URI = MONGODB-PLACEHOLDER-URI
+  DB_STRING = MONGODB-PLACEHOLDER-URI
 ```
 
 Start the server in production mode
