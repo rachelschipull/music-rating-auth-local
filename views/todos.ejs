@@ -10,13 +10,22 @@
 <body>
     <h1>Todos</h1>
     <ul>
-    <% todos.forEach( el => { %>
+        <% todos.filter(el =>el.completed !== true).forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='not'><%= el.todo %></span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }) %>    
+    </ul>
+    <ul>
+    <% todos.filter(el => el.completed === true).forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='completed'><%= el.todo %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
+   
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
