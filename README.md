@@ -50,7 +50,7 @@ Create environment variable file
   touch .env
 ```
 
-Add the following entries to the environment variable file (config.env)
+Add the following entries to the environment variable file (.env)
 
 ```bash
   PORT = 2121
@@ -67,13 +67,6 @@ Navigate your browser to
 ```
 http://localhost:2121/
 ```
-
-
-## Authors
-
-- [@RachelSchipull](https://github.com/rachelschipull)
-- [@ChadVidovcich](https://www.github.com/chadvidovcich)
-
 
 ## License
 
