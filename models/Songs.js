@@ -6,7 +6,7 @@ const SongSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // Not sure if this is going to work. Needs to be an array of users that liked the song.
+  // Not sure if this is going to work. Needs to be an array of userIDs that liked the song.
   userLIkes: [{
     type: String,
   }],

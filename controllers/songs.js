@@ -10,6 +10,7 @@ module.exports = {
             const likedSongs = await Songs.find({
                 userLIkes: req.user.id
               })
+            // render the EJS songs page
             res.render('songs.ejs', {songs: allSongs, liked: likedSongs, user: req.user})
         }catch(err){
             console.log(err)
@@ -17,6 +18,7 @@ module.exports = {
     },
     addSong: async (req, res)=>{
         try{
+            // add song to database
             await Songs.create({songURL: req.body.songURL, userLIkes: [req.user.id], submitUserId: req.user.id})
             console.log('Song has been added!')
             res.redirect('/songs')
