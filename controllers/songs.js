@@ -2,12 +2,11 @@ const Songs = require('../models/Songs')
 
 module.exports = {
     getSongs: async (req,res)=>{
-        console.log(req.user)
         try{
             // find songs not liked by the current user, but added by the current user
-            const songItems = await Songs.find({userId:req.user.id,likedSong:false})
+            const songItems = await Songs.find({submitUserId:req.user.id,likedSong:false})
             // find songs liked by the current user
-            const likedSongs = await Songs.find({userId:req.user.id,likedSong:true})
+            const likedSongs = await Songs.find({submitUserId:req.user.id,likedSong:true})
             // render the EJS songs page
             res.render('songs.ejs', {songs: songItems, liked: likedSongs, user: req.user})
         }catch(err){
@@ -47,7 +46,6 @@ module.exports = {
         }
     },
     deleteSong: async (req, res)=>{
-        console.log(req.body.songIdFromJSFile)
         try{
             await Songs.findOneAndDelete({_id:req.body.SongIdFromJSFile})
             console.log('Song Deleted')
