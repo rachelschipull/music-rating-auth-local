@@ -35,17 +35,17 @@ module.exports = {
             console.log(err)
         }
     },
-    // markIncomplete: async (req, res)=>{
-    //     try{
-    //         await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: false
-    //         })
-    //         console.log('Marked Incomplete')
-    //         res.json('Marked Incomplete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
+    unLikeSong: async (req, res)=>{
+        try{
+            await Songs.findOneAndUpdate({_id:req.body.songIdFromJSFile},{
+                likedSong: false
+            })
+            console.log('Song Unliked')
+            res.json('Song unliked')
+        }catch(err){
+            console.log(err)
+        }
+    },
     deleteSong: async (req, res)=>{
         console.log(req.body.songIdFromJSFile)
         try{
