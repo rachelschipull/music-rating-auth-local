@@ -9,6 +9,7 @@ const SongSchema = new mongoose.Schema({
   // whether or not the user has liked the current song
   likedSong: {
     type: Boolean,
+    default: false,
     required: true
   },
   // User who submitted the song
