@@ -21,7 +21,7 @@ async function deleteSong(){
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'songIdFromJSFile': songId
+                'SongIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -39,7 +39,7 @@ async function likeSong(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'songIdFromJSFile': songId
+                'SongIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -57,7 +57,7 @@ async function unLikeSong(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'songIdFromJSFile': songId
+                'SongIdFromJSFile': songId
             })
         })
         const data = await response.json()
