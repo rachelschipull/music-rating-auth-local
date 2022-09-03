@@ -1,27 +1,27 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const songItem = document.querySelectorAll('span.song')
+const likedSongItem = document.querySelectorAll('span.liked')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteSong)
 })
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
+Array.from(songItem).forEach((el)=>{
+    el.addEventListener('click', likeSong)
 })
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
+Array.from(likedSongItem).forEach((el)=>{
+    el.addEventListener('click', unLikeSong)
 })
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteSong(){
+    const songId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('songs/deleteSong', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'songIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -32,14 +32,14 @@ async function deleteTodo(){
     }
 }
 
-async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+async function likeSong(){
+    const songId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('songs/likeSong', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'songIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -50,14 +50,14 @@ async function markComplete(){
     }
 }
 
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
+async function unLikeSong(){
+    const songId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('songs/unLikeSong', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'songIdFromJSFile': songId
             })
         })
         const data = await response.json()
