@@ -4,14 +4,12 @@ module.exports = {
     getSongs: async (req,res)=>{
         console.log(req.user)
         try{
-            // find all songs in database
-            const allSongs = await Songs.find()
+            // find all songs in database added by current user
+            const songItems = await Songs.find({userId:req.user.id})
             // find songs liked by the current user
-            const likedSongs = await Songs.find({
-                userLIkes: req.user.id
-              })
+            const likedSongs = await Songs.find({userId:req.user.id,likedSong:true})
             // render the EJS songs page
-            res.render('songs.ejs', {songs: allSongs, liked: likedSongs, user: req.user})
+            res.render('songs.ejs', {songs: songItems, liked: likedSongs, user: req.user})
         }catch(err){
             console.log(err)
         }
