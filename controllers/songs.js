@@ -4,8 +4,8 @@ module.exports = {
     getSongs: async (req,res)=>{
         console.log(req.user)
         try{
-            // find all songs in database added by current user
-            const songItems = await Songs.find({userId:req.user.id})
+            // find songs not liked by the current user, but added by the current user
+            const songItems = await Songs.find({userId:req.user.id,likedSong:false})
             // find songs liked by the current user
             const likedSongs = await Songs.find({userId:req.user.id,likedSong:true})
             // render the EJS songs page
@@ -18,7 +18,7 @@ module.exports = {
         try{
             // add song to database
             await Songs.create({songURL: req.body.songURL, likedSong: false, submitUserId: req.user.id})
-            console.log('Song has been added!')
+            console.log('Song Added!')
             res.redirect('/songs')
         }catch(err){
             console.log(err)
@@ -30,18 +30,18 @@ module.exports = {
               likedSong: true
             })
             console.log('Song Liked')
-            res.json('Song was liked')
+            res.json('Song was Liked')
         }catch(err){
             console.log(err)
         }
     },
     unLikeSong: async (req, res)=>{
         try{
-            await Songs.findOneAndUpdate({_id:req.body.songIdFromJSFile},{
+            await Songs.findOneAndUpdate({_id:req.body.SongIdFromJSFile},{
                 likedSong: false
             })
             console.log('Song Unliked')
-            res.json('Song unliked')
+            res.json('Song was Unliked')
         }catch(err){
             console.log(err)
         }
@@ -49,9 +49,9 @@ module.exports = {
     deleteSong: async (req, res)=>{
         console.log(req.body.songIdFromJSFile)
         try{
-            await Songs.findOneAndDelete({_id:req.body.songIdFromJSFile})
-            console.log('Deleted song')
-            res.json('Song was deleted')
+            await Songs.findOneAndDelete({_id:req.body.SongIdFromJSFile})
+            console.log('Song Deleted')
+            res.json('Song was Deleted')
         }catch(err){
             console.log(err)
         }
