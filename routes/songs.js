@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-// change to songsController
 const songsController = require('../controllers/songs') 
 const { ensureAuth } = require('../middleware/auth')
 
@@ -8,10 +7,10 @@ router.get('/', ensureAuth, songsController.getSongs)
 
 router.post('/add', songsController.addSong)
 
-// router.put('/markComplete', songsController.markComplete)
+router.put('/likeSong', songsController.likeSong)
 
-// router.put('/markIncomplete', songsController.markIncomplete)
+router.put('/unLikeSong', songsController.unLikeSong)
 
-// router.delete('/deleteTodo', songsController.deleteTodo)
+router.delete('/deleteSong', songsController.deleteSong)
 
 module.exports = router

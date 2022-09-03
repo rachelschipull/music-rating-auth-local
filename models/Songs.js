@@ -6,11 +6,12 @@ const SongSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // Not sure if this is going to work. Needs to be an array of users that liked the song.
-  userLIkes: [{
-    type: String,
-  }],
-  // User who submitted the song. 
+  // whether or not the user has liked the current song
+  likedSong: {
+    type: Boolean,
+    required: true
+  },
+  // User who submitted the song
   submitUserId: {
     type: String,
     required: true
