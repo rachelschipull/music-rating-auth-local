@@ -15,13 +15,16 @@ Array.from(todoComplete).forEach((el)=>{
 })
 
 async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+    let ids = this.parentNode.dataset.id.split('|||')[0]
+    const todoId = ids[0]
+    const userID = ids[1]
     try{
         const response = await fetch('todos/deleteTodo', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': todoId,
+                'userID': userID
             })
         })
         const data = await response.json()
@@ -35,7 +38,7 @@ async function deleteTodo(){
 async function markComplete(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('songs/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({

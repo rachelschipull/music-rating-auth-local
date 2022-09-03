@@ -10,17 +10,41 @@
 <body>
     <h1>Songs</h1>
     <ul>
-        <% songs.filter(el =>el.completed !== true).forEach( el => { %>
-                <li class='todoItem' data-id='<%=el._id%>'>
-                    <span class='not'><%= el.todo %></span>
+        <% songs.filter(song =>song.userLIkes.includes(user) !== true).forEach( song => { %>
+                <li class='todoItem' data-id='<%=song._id%>'>
+                    <span class='not'>
+<!-- Start of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->                    
+<!-- <iframe width="560" height="315" src=" -->
+<!-- Start of updating iframe for spotify video      AdnanIkram 3 sep 2022-->
+                    <iframe style="border-radius:12px" src="
+
+                        <%=song.songURL.replace('https://open.spotify.com/','https://open.spotify.com/embed/') %>
+
+
+                        width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<!-- End of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->                
+
+<!-- " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<!-- End of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->                
+                    </span>
+<!-- Start of implementing the like functionality                                  AdnanIkram 3 sep 2022-->                
+                    <span class='<%= (song.userLIkes.includes(user) !== true) === true ? 'not' : 'completed'%>'>Like</span>
+<!-- End of implementing the like functionality                                    AdnanIkram 3 sep 2022-->                                
+
                     <span class='del'> Delete </span>
                 </li>
         <% }) %>    
     </ul>
     <ul>
-    <% songs.filter(el => el.completed === true).forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='completed'><%= el.todo %></span>
+    <% songs.filter(song =>song.userLIkes.includes(user) === true).forEach( song => { %>
+            <li class='todoItem' data-id='<%=song._id%>'>
+                <span class='completed'>
+<!-- Start of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->
+                <iframe width="560" height="315" src="
+                    <%= song.songURL %>
+                " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- End of updating simple text to include an iframe for the youtube video        AdnanIkram 3 sep 2022-->                
+                </span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    

@@ -58,4 +58,16 @@ module.exports = {
     //         console.log(err)
     //     }
     // }
+    deleteTodo: async (req, res)=>{
+        try{
+            await Song.updateMany({_id:req.body.todoIdFromJSFile},{
+                $push:{"userLIkes":req.body.userID}}
+            )
+            
+            console.log('Marked Complete')
+            res.json('Marked Complete')
+        }catch(err){
+            console.log(err)
+        }
+    }
 }    
