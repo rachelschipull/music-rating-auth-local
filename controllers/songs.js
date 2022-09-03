@@ -46,14 +46,14 @@ module.exports = {
     //         console.log(err)
     //     }
     // },
-    // deleteTodo: async (req, res)=>{
-    //     console.log(req.body.todoIdFromJSFile)
-    //     try{
-    //         await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-    //         console.log('Deleted Todo')
-    //         res.json('Deleted It')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
+    deleteSong: async (req, res)=>{
+        console.log(req.body.songIdFromJSFile)
+        try{
+            await Songs.findOneAndDelete({_id:req.body.songIdFromJSFile})
+            console.log('Deleted song')
+            res.json('Song was deleted')
+        }catch(err){
+            console.log(err)
+        }
+    }
 }    
