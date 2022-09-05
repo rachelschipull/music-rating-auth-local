@@ -8,8 +8,8 @@ router.get('/', ensureAuth, songsController.getSongs)
 router.post('/add', songsController.addSong)
 
 // ~~~NOT COMPLETE~~~
-// router.put('/markComplete', songsController.markComplete)
-// router.put('/markIncomplete', songsController.markIncomplete)
-// router.delete('/deleteTodo', songsController.deleteTodo)
+ router.put('/markComplete', songsController.markComplete)
+ router.put('/markIncomplete', songsController.markIncomplete)
+ router.delete('/deleteSong', songsController.deleteSong)
 
 module.exports = router

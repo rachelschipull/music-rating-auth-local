@@ -19,55 +19,60 @@ module.exports = {
     addSong: async (req, res)=>{
         try{
             // add song to database
-            await Songs.create({songURL: req.body.songURL, userLIkes: [req.user.id], submitUserId: req.user.id})
+            //await Songs.create({songURL: req.body.songURL, userLIkes: [req.user.id], submitUserId: req.user.id})
+            await Songs.create({songURL: req.body.songURL, userLIkes: [req.user], submitUserId: req.user.id})
             console.log('Song has been added!')
             res.redirect('/songs')
         }catch(err){
             console.log(err)
         }
     },
-    // markComplete: async (req, res)=>{
-    //     try{
-    //         await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: true
-    //         })
-    //         console.log('Marked Complete')
-    //         res.json('Marked Complete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
-    // markIncomplete: async (req, res)=>{
-    //     try{
-    //         await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: false
-    //         })
-    //         console.log('Marked Incomplete')
-    //         res.json('Marked Incomplete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
-    // deleteTodo: async (req, res)=>{
-    //     console.log(req.body.todoIdFromJSFile)
-    //     try{
-    //         await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-    //         console.log('Deleted Todo')
-    //         res.json('Deleted It')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
-    deleteTodo: async (req, res)=>{
+    markComplete: async (req, res)=>{
         try{
-            await Song.updateMany({_id:req.body.todoIdFromJSFile},{
-                $push:{"userLIkes":req.body.userID}}
-            )
-            
+            //console.log(req)
+            //const userName = req.user._id + '||||' + req.user.userName
+            await Songs.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{$push:{userLIkes: req.user._id +'||'+ req.user.userName  }})
             console.log('Marked Complete')
             res.json('Marked Complete')
         }catch(err){
             console.log(err)
         }
+    },
+    markIncomplete: async (req, res)=>{
+        try{
+            // await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            //     completed: false
+            // })
+            await Songs.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{$pull:{userLIkes: req.user._id +'||'+ req.user.userName  }})
+            console.log('Marked Incomplete')
+            res.json('Marked Incomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    deleteSong: async (req, res)=>{
+        console.log(req.body.todoIdFromJSFile)
+        try{
+            await Songs.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            console.log('Deleted Todo')
+            res.json('Deleted It')
+        }catch(err){
+            console.log(err)
+        }
     }
+    // test begin
+    // markComplete: async (req, res)=>{
+    //     try{
+    //         await Songs.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+    //          //   $push:{"userLIkes":req.user}
+    //                 submitUserId:'test'
+    //         })
+            
+    //         console.log('Marked Complete')
+    //         res.json('Marked Complete')
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // }
+    // test end
 }    

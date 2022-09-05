@@ -15,31 +15,10 @@ Array.from(todoComplete).forEach((el)=>{
 })
 
 async function deleteTodo(){
-    let ids = this.parentNode.dataset.id.split('|||')[0]
-    const todoId = ids[0]
-    const userID = ids[1]
-    try{
-        const response = await fetch('todos/deleteTodo', {
-            method: 'delete',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId,
-                'userID': userID
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
-}
-
-async function markComplete(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('songs/markComplete', {
-            method: 'put',
+        const response = await fetch('songs/deleteSong', {
+            method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
@@ -53,10 +32,31 @@ async function markComplete(){
     }
 }
 
+async function markComplete(){
+    const todoId = this.parentNode.dataset.id
+
+    console.log(todoId)
+    try{
+        const response = await fetch('songs/markComplete', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId,
+                'user': 'adnanuser'
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
 async function markIncomplete(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('songs/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
