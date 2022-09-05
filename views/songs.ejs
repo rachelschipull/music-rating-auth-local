@@ -9,8 +9,9 @@
 </head>
 <body>
     <h1>Songs</h1>
+    <h2>All Songs</h2>
     <ul>
-        <% songs.filter(song =>song.userLIkes.includes(user._id) !== true).forEach( song => { %>
+        <% songs.filter(song =>song.userLIkes.map(usr=> usr.split('||')[0]).includes(user._id) !== true).forEach( song => { %>
                 <li class='todoItem' data-id='<%=song._id%>'>
                     <span class='not'>
 <!-- Start of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->                    
@@ -23,15 +24,16 @@
 <!-- End of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->                
                     </span>
 <!-- Start of implementing the like functionality                                  AdnanIkram 3 sep 2022-->                
-                    <span class='<%= (song.userLIkes.includes(user) !== true) === true ? 'not' : 'completed'%>'>Like</span>
+                    <span class='<%= (song.userLIkes.includes(user._id) !== true) === true ? 'not' : 'completed'%>'>Like</span>
 <!-- End of implementing the like functionality                                    AdnanIkram 3 sep 2022-->                                
 
                     <span class='del'> Delete </span>
                 </li>
         <% }) %>    
     </ul>
+    <h2>Liked Songs</h2>
     <ul>
-    <% songs.filter(song =>song.userLIkes.includes(user) === true).forEach( song => { %>
+    <% songs.filter(song =>song.userLIkes.map(usr=> usr.split('||')[0]).includes(user._id) === true).forEach( song => { %>
             <li class='todoItem' data-id='<%=song._id%>'>
                 <span class='completed'>
 <!-- Start of updating simple text to include an iframe for the youtube video      AdnanIkram 3 sep 2022-->
@@ -39,6 +41,10 @@
                     <%= song.songURL %>
                 " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <!-- End of updating simple text to include an iframe for the youtube video        AdnanIkram 3 sep 2022-->                
+<!-- Start of implementing the un-like functionality                                  AdnanIkram 3 sep 2022-->                
+<span class='<%= (song.userLIkes.includes(user._id) !== true) === true ? 'not' : 'completed'%>'>Un-Like</span>
+<!-- End of implementing the un-like functionality                                    AdnanIkram 3 sep 2022-->                                
+
                 </span>
                 <span class='del'> Delete </span>
             </li>

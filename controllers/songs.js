@@ -20,7 +20,7 @@ module.exports = {
         try{
             // add song to database
             //await Songs.create({songURL: req.body.songURL, userLIkes: [req.user.id], submitUserId: req.user.id})
-            await Songs.create({songURL: req.body.songURL, userLIkes: [req.user], submitUserId: req.user.id})
+            await Songs.create({songURL: req.body.songURL, userLIkes: [''], submitUserId: req.user.id})
             console.log('Song has been added!')
             res.redirect('/songs')
         }catch(err){
