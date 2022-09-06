@@ -46,28 +46,38 @@
     
                 </div>
                 
-            <h1 class="title-center">Songs</h1>
+            <h1 class="title-center">All Songs</h1>
             <ul class="song-display">
-                <% songs.filter(el =>el.completed !== true).forEach( el => { %>
+                <% songs.filter(el =>el.likedSong !== true).forEach( el => { %>
+                    <div>
                         <li class='songItem' data-id='<%=el._id%>'>
                             <span class='not'>
                                 <h5 class="title-center"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= el.songURL.slice(31) %>" width="100%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </h5>
                             </span>
                             
-                            <span class='fa fa-regular fa-thumbs-up'> </span>
+                            <span class='not fa fa-regular fa-thumbs-up'> </span>
                             <span class='del fa fa-solid fa-trash'> </span>
-                            <span class='fa fa-regular fa-thumbs-down'> </span>
+                            <!-- <span class='fa fa-regular fa-thumbs-down'> </span> -->
                             
                         </li>
+                    </div>
                 <% }) %>    
             </ul>
+            <h1 class="title-center">Liked Songs</h1>
             <ul class="song-display">
-            <% songs.filter(el => el.completed === true).forEach( el => { %>
+            <% liked.filter(el => el.likedSong === true).forEach( el => { %>
+                <div>
                     <li class='songItem' data-id='<%=el._id%>'>
-                        <span class='completed'><%= el.songURL %></span>
-                        <span class='del'> Delete </span>
+                        <span class='completed'>
+                            <h5 class="title-center"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= el.songURL.slice(31) %>" width="100%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </h5>
+                        </span>
+                        <!-- <span class='not fa fa-regular fa-thumbs-up'> </span> -->
+                        <span class='del fa fa-solid fa-trash'> </span>
+                        <span class='completed fa fa-regular fa-thumbs-down'> </span>
                     </li>
+                </div>
             <% }) %>    
             </ul>
         

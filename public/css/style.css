@@ -163,7 +163,7 @@ textarea {
     cursor: pointer;
     font-size: 1.8rem;
     bottom: 200px;
-    left: 95px;
+    left: 65px;
     transition: color .5s ease-in-out;
 }
 
@@ -177,7 +177,7 @@ textarea {
     cursor: pointer;
     font-size: 1.8rem;
     bottom: 100px;
-    left: 32px;
+    left: 36px;
     transition: color .5s ease-in-out;
 }
 
@@ -191,8 +191,11 @@ textarea {
     position: relative;
     font-size: 1.8rem;
     bottom: 150px;
-    left: 65px;
+    left: 35px;
     transition: color .5s ease-in-out;
+}
+.completed+.del{
+    left: 68px;
 }
 
 .del:hover {
