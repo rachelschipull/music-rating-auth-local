@@ -1,6 +1,8 @@
 const deleteBtn = document.querySelectorAll('.del')
-const songItem = document.querySelectorAll('span.song')
-const likedSongItem = document.querySelectorAll('span.liked')
+const songItem = document.querySelectorAll('span.not')
+const likedSongItem = document.querySelectorAll('span.completed')
+let menu = document.querySelector(".mobile-menu");
+let nav = document.querySelector(".nav-bar");
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteSong)
@@ -21,7 +23,7 @@ async function deleteSong(){
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'songIdFromJSFile': songId
+                'SongIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -39,7 +41,7 @@ async function likeSong(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'songIdFromJSFile': songId
+                'SongIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -57,7 +59,7 @@ async function unLikeSong(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'songIdFromJSFile': songId
+                'SongIdFromJSFile': songId
             })
         })
         const data = await response.json()
@@ -67,3 +69,19 @@ async function unLikeSong(){
         console.log(err)
     }
 }
+
+// Event listener for mobile menu
+menu.addEventListener("click", () => {
+
+    switchMenuIcon(menu);
+    mobileMenuToggle(nav);
+    
+    })
+    
+    function switchMenuIcon(icon) {
+        icon.classList.toggle("fa-times");
+    }
+    
+    function mobileMenuToggle(nav) {
+        nav.classList.toggle("toggle-nav");
+    }

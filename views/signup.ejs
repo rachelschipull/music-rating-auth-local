@@ -4,20 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sign Up</title>
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+
+    <main>
+        <div class="container">
+
+            <div class="site-logo">
+
+                <img src="images/music-note.png" alt="Music Rating App Logo">
+    
+                </div>
+
+                <h2 class="title-center">Sign up to track the songs you want to listen to:</h2>
+
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <form action="/signup" method="POST" class="form-flex-parent">
+                <div class="form-flex-child">
+                <label for="userName">Name</label>
+                <input type="text" name="userName">
+                </div>
+                <div class="form-flex-child">
+                <label for="email">Email</label>
+                <input type="email" name="email">
+                </div>
+                <div class="form-flex-child">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+                </div>
+                <div class="form-flex-child">
+                <label for="confirmPassword">Verify Password</label>
+                <input type="password" name="confirmPassword">
+                </div>
+                <div class="form-flex-child">
+                <input type="submit" value="JOIN" class="btn">
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
 </html>

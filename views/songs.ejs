@@ -4,38 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/41227e39f8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <title>Songs</title>
+    
 </head>
 <body>
-    <h1>Songs</h1>
-    <ul>
-        <% songs.filter(el =>el.completed !== true).forEach( el => { %>
-                <li class='todoItem' data-id='<%=el._id%>'>
-                    <span class='not'><%= el.todo %></span>
-                    <span class='del'> Delete </span>
-                </li>
-        <% }) %>    
-    </ul>
-    <ul>
-    <% songs.filter(el => el.completed === true).forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='completed'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-   
 
-    <!-- <h2><%= user.userName %> has <%= liked %> things left to do.</h2> -->
+    <header class="header">
 
-    <form action="/songs/add" method='POST'>
-        <input type="text" placeholder="Enter song Item" name='songURL'>
-        <input type="submit">
-    </form>
+        <div class="container">
 
-    <a href="/logout">Logout</a>
+            <div class="header-flex-parent">
 
-    <script src="js/main.js"></script>
+                <span class="mobile-menu fas fa-bars"></span>
+
+                <nav class="nav-bar"> 
+
+                    <ul class="nav-links">
+
+                        <li class="nav-items"><a href="#" class="nav-menu">To Rate</a></li>
+                        <li class="nav-items"><a href="#" class="nav-menu">Liked</a></li>
+                        <li class="nav-items"><a href="/songs" class="nav-menu">Add Song</a></li>
+                        <li class="nav-items"><a href="/logout" class="nav-menu">Log Out</a></li>
+                        
+                    </ul>
+
+                </nav>
+            </div> <!-- header-flex-parent ends -->
+        </div> <!-- container ends -->
+    </header>
+    <main>
+        <div class="container">
+
+            <div class="site-logo">
+
+                <img src="images/music-note.png" alt="Music Rating App Logo">
+    
+                </div>
+                
+            <h1 class="title-center">All Songs</h1>
+            <ul class="song-display">
+                <% songs.filter(el =>el.likedSong !== true).forEach( el => { %>
+                    <div>
+                        <li class='songItem' data-id='<%=el._id%>'>
+                            <span class='not'>
+                                <h5 class="title-center"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= el.songURL.slice(31) %>" width="100%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                </h5>
+                            </span>
+                            
+                            <span class='not fa fa-regular fa-thumbs-up'> </span>
+                            <span class='del fa fa-solid fa-trash'> </span>
+                            <!-- <span class='fa fa-regular fa-thumbs-down'> </span> -->
+                            
+                        </li>
+                    </div>
+                <% }) %>    
+            </ul>
+            <h1 class="title-center">Liked Songs</h1>
+            <ul class="song-display">
+            <% liked.filter(el => el.likedSong === true).forEach( el => { %>
+                <div>
+                    <li class='songItem' data-id='<%=el._id%>'>
+                        <span class='completed'>
+                            <h5 class="title-center"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= el.songURL.slice(31) %>" width="100%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </h5>
+                        </span>
+                        <!-- <span class='not fa fa-regular fa-thumbs-up'> </span> -->
+                        <span class='del fa fa-solid fa-trash'> </span>
+                        <span class='completed fa fa-regular fa-thumbs-down'> </span>
+                    </li>
+                </div>
+            <% }) %>    
+            </ul>
+        
+
+            <!-- <h2><%= user.userName %> has <%= liked %> things left to do.</h2> -->
+
+            <form action="/songs/add" method='POST' autocomplete="off" class="form-flex-parent">
+                <div class="form-flex-child">
+                <label for="songURL">Add your song:</label><br>
+                <textarea name='songURL'
+                 rows="5" cols="30" placeholder="Paste spotify link here"></textarea>
+                <!-- <input type="text" placeholder="Paste spotify link here" name='sample'> -->
+                </div>
+                <div class="form-flex-child">
+                <input type="submit" class="btn" value="Add Song">
+                </div>
+            </form>
+
+            <!-- <a href="/logout" class="btn">Logout</a> -->
+        </div>
+        <script src="js/main.js"></script>
+    </main>
 </body>
 </html>

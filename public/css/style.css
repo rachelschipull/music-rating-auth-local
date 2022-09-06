@@ -1,6 +1,207 @@
-h1{
+*, *::before, *::after {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    
+}
+
+h1 {
+
+    padding-bottom: 2rem;
+    font-size: 2em;
+}
+
+.container {
+
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 2em 0;
+    
+}
+
+/* Starts navigation styles */
+.mobile-menu {
+    display: block;
+    font-size: 3rem;
+    color: black;
+    text-align: right;
+    cursor: pointer;
+}
+
+.nav-bar {
+    display: none;
+}
+
+.toggle-nav {
+    display: block;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.nav-menu {
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    transition: color .5s ease-in;
+    
+}
+
+.nav-menu:hover {
+    color:#BAC5FF;
+}
+
+
+/* Ends navigation styles */
+
+.site-logo {
+    width: 10%;
+    height: 10%;
+    margin: 0 auto;
+    animation: logo 2s ease-in-out infinite alternate;
+}
+
+.title-center {
+    text-align: center;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #BAC5FF;
+    color: black;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+/* Start Styles for the index */
+
+.index-flex-parent {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.index-flex-child {
+    margin-bottom: 3rem;
+}
+
+/* Finish styles for the index   */
+
+/*  Starts the styles for the sign up form  */
+
+.form-flex-parent {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.form-flex-child {
+    margin-bottom: 2rem;
+}
+
+input {
+    background-color: #cdffcc;
+    font-size: 1.2rem;
+}
+textarea {
+    background-color: #cdffcc;
+    //resize: none;
+}
+
+.alert {
+    text-align: center;
     color: red;
 }
+
+/*  Ends the styles for the sign up form */
+
+/*  Starts the styles for the songs.ejs */
+.song-display {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+}
+
+.fa-thumbs-up {
+    position: relative;
+    color: #989595;
+    cursor: pointer;
+    font-size: 1.8rem;
+    bottom: 200px;
+    left: 65px;
+    transition: color .5s ease-in-out;
+}
+
+.fa-thumbs-up:hover {
+    color: greenyellow;
+}
+
+.fa-thumbs-down {
+    position: relative;
+    color: #989595;
+    cursor: pointer;
+    font-size: 1.8rem;
+    bottom: 100px;
+    left: 36px;
+    transition: color .5s ease-in-out;
+}
+
+.fa-thumbs-down:hover {
+    color: orange;
+}
+
+.del {
+    color: #989595;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.8rem;
+    bottom: 150px;
+    left: 35px;
+    transition: color .5s ease-in-out;
+}
+.completed+.del{
+    left: 68px;
+}
+
+.del:hover {
+    color: red;
+}
+
 .completed{
     text-decoration: line-through;
     color: gray;
@@ -8,3 +209,73 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+@keyframes logo {
+
+    0%{ transform: rotate(0deg);}
+    
+    50%{ transform: rotate(10deg); }
+    
+    100%{ transform: rotate(-10deg);}
+    
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 700px) {
+
+    .container {
+        max-width: 80%;
+    }
+
+    .mobile-menu {
+        display:none;
+    }
+    
+    .nav-bar {
+        display: block;
+    }
+    
+    .header-flex-parent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        
+    }
+    
+    .nav-menu {
+        font-size: 1.3rem;
+        border: 1px solid black;
+        padding: .5rem .75rem;
+        background-color: #BAC5FF;
+        transition: background-color .5s ease-in;
+    }
+    
+    .nav-menu:hover {
+        color: white;
+        background-color: black;
+        
+    }
+
+    .song-display {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+
+
+}
+
+
+
+
+/* ////////////////// */

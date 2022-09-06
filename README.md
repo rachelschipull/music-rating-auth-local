@@ -1,4 +1,3 @@
-
 # Music Rating App
 
 Music Rating App allows users to submit, view, upvote, and delete Spotify songs from a database. Users will be required to login with their email address to use the app.
@@ -69,4 +68,3 @@ http://localhost:2121/
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-

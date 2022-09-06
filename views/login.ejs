@@ -4,23 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <main>
+        <div class="container">
+
+            <div class="site-logo">
+
+                <img src="images/music-note.png" alt="Music Rating App Logo">
+    
+                </div>
+
+                <h2 class="title-center">Sign in to your account:</h2>
+
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+                <% messages.info.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <form action="/login" method="POST" class="form-flex-parent">
+                <div class="form-flex-child">
+                <label for="email">Email</label>
+                <input type="email" name="email">
+                </div>
+                <div class="form-flex-child">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+                </div>
+                <div class="form-flex-child">
+                <input type="submit" value="Sign In" class="btn">
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
