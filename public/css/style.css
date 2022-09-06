@@ -18,26 +18,66 @@ img {
     
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
 
     padding-bottom: 2rem;
-}
-
-h1 {
     font-size: 2em;
 }
 
 .container {
 
-    max-width: 90%;
+    max-width: 95%;
     margin: 0 auto;
     padding: 2em 0;
     
 }
 
+/* Starts navigation styles */
+.mobile-menu {
+    display: block;
+    font-size: 3rem;
+    color: black;
+    text-align: right;
+    cursor: pointer;
+}
+
+.nav-bar {
+    display: none;
+}
+
+.toggle-nav {
+    display: block;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.nav-menu {
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    transition: color .5s ease-in;
+    
+}
+
+.nav-menu:hover {
+    color:#BAC5FF;
+}
+
+
+/* Ends navigation styles */
+
 .site-logo {
-    width: 5%;
-    height: 5%;
+    width: 10%;
+    height: 10%;
     margin: 0 auto;
     animation: logo 2s ease-in-out infinite alternate;
 }
@@ -52,6 +92,14 @@ h1 {
     color: black;
     padding: 1rem 2rem;
     border: 1px solid black;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid green;
+    cursor: pointer;
 }
 
 /* Start Styles for the index */
@@ -77,14 +125,20 @@ h1 {
     flex-direction: column;
     text-align: center;
     justify-content: space-between;
+    margin-top: 2rem;
 }
 
 .form-flex-child {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 input {
-    background-color: #D9D9D9;
+    background-color: #cdffcc;
+    font-size: 1.2rem;
+}
+textarea {
+    background-color: #cdffcc;
+    //resize: none;
 }
 
 .alert {
@@ -92,7 +146,30 @@ input {
     color: red;
 }
 
-/*  Ends the styles for the sign up form    */
+/*  Ends the styles for the sign up form */
+
+/*  Starts the styles for the songs.ejs */
+.song-display {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+}
+
+.del {
+    color: #989595;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.8rem;
+    bottom: 150px;
+    left: 30px;
+    transition: color .5s ease-in-out;
+}
+
+.del:hover {
+    color: red;
+}
 
 .completed{
     text-decoration: line-through;
@@ -111,3 +188,63 @@ input {
     100%{ transform: rotate(-10deg);}
     
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 700px) {
+
+    .container {
+        max-width: 80%;
+    }
+
+    .mobile-menu {
+        display:none;
+    }
+    
+    .nav-bar {
+        display: block;
+    }
+    
+    .header-flex-parent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        
+    }
+    
+    .nav-menu {
+        font-size: 1.3rem;
+        border: 1px solid black;
+        padding: .5rem .75rem;
+        background-color: #BAC5FF;
+        transition: background-color .5s ease-in;
+    }
+    
+    .nav-menu:hover {
+        color: white;
+        background-color: black;
+        
+    }
+
+    .song-display {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+
+
+}
+
+
+
+
+/* ////////////////// */

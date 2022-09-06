@@ -1,6 +1,8 @@
 const deleteBtn = document.querySelectorAll('.del')
 const songItem = document.querySelectorAll('span.song')
 const likedSongItem = document.querySelectorAll('span.liked')
+let menu = document.querySelector(".mobile-menu");
+let nav = document.querySelector(".nav-bar");
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteSong)
@@ -67,3 +69,19 @@ async function unLikeSong(){
         console.log(err)
     }
 }
+
+// Event listener for mobile menu
+menu.addEventListener("click", () => {
+
+    switchMenuIcon(menu);
+    mobileMenuToggle(nav);
+    
+    })
+    
+    function switchMenuIcon(icon) {
+        icon.classList.toggle("fa-times");
+    }
+    
+    function mobileMenuToggle(nav) {
+        nav.classList.toggle("toggle-nav");
+    }
