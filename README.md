@@ -1,22 +1,19 @@
-
 # Music Rating App
 
 Music Rating App allows users to submit, view, upvote, and delete Spotify songs from a database. Users will be required to login with their email address to use the app.
 
 ## Screenshots
-![App Screenshot](https://placedog.net/250?r)
-
-Please enjoy this image until project screenshots are completed.
+![App Screenshot](/config/screenshot.png)
 
 ## Packages/Dependencies used 
 
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
-<!-- ## Usage
+## Usage
 
 View the live deployment here:
 
-[Music Rating App Live Deployment](#) -->
+[Music Rating App Live Deployment](https://music-rating.herokuapp.com/)
 
 
 ## Run Locally
@@ -71,4 +68,3 @@ http://localhost:2121/
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
