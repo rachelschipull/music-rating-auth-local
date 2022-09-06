@@ -9,6 +9,15 @@ Music Rating App allows users to submit, view, upvote, and delete Spotify songs 
 
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
+## Authors
+
+- [@rachelschipull](https://github.com/rachelschipull)
+- [@chadvidovcich](https://www.github.com/chadvidovcich)
+- [@RubyWoodsDev](https://github.com/RubyWoodsDev)
+- [@nsilvacastellon](https://github.com/nsilvacastellon)
+- [@AdnanIkram](https://github.com/AdnanIkram)
+- [@Domslays](https://github.com/Domslays)
+
 ## Usage
 
 View the live deployment here:
