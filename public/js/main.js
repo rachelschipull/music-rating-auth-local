@@ -1,6 +1,6 @@
 const deleteBtn = document.querySelectorAll('.del')
-const songItem = document.querySelectorAll('span.song')
-const likedSongItem = document.querySelectorAll('span.liked')
+const songItem = document.querySelectorAll('span.not')
+const likedSongItem = document.querySelectorAll('span.completed')
 let menu = document.querySelector(".mobile-menu");
 let nav = document.querySelector(".nav-bar");
 
