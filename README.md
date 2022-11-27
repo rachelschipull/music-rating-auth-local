@@ -22,7 +22,7 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 View the live deployment here:
 
-[Music Rating App Live Deployment](https://music-rating.herokuapp.com/)
+[Music Rating App Live Deployment](https://musicrating.cyclic.app/)
 
 
 ## Run Locally
